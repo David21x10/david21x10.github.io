@@ -1,141 +1,254 @@
-/* =====================
-   GALLERY / LIGHTBOX
-===================== */
+/* ============================================
+   DV.DEV — Terminal Portfolio
+   main.js
+   ============================================ */
 
-/** @type {string[]} */
-let currentImages = [];
-/** @type {number} */
-let currentIndex = 0;
+/* --------------------------------------------
+   1) TYPEWRITER TERMINAL
+--------------------------------------------- */
+(function () {
+  const body = document.getElementById('terminalBody');
+  if (!body) return;
 
-/**
- * Abre el modal de galería para un proyecto.
- * @param {string} title     - Nombre del proyecto
- * @param {string} subtitle  - Subtítulo / año / contexto
- * @param {string[]} images  - Array de rutas o URLs de las imágenes
- */
-function openGallery(title, subtitle, images) {
-  currentImages = images;
-  currentIndex = 0;
+  // Each entry describes one line of the fake session.
+  // type: 'cmd' (green prompt + typed command), 'out' (plain output),
+  // 'list' (pink arrow + green text), 'gap' (blank spacer)
+  const script = [
+  { type: 'cmd', text: 'whoami' },
+  { type: 'out', text: 'Software Engineer / Full-Stack Developer' },
 
-  document.getElementById('galleryTitle').textContent = title;
-  document.getElementById('gallerySubtitle').textContent = subtitle;
+  { type: 'gap' },
 
-  renderGallery();
-  document.getElementById('galleryOverlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
+  { type: 'cmd', text: 'stack --list' },
+{ type: 'list', text: '[Frontend]  React • Angular • Next.js' },
+{ type: 'list', text: '[Backend ]  C# • .NET • Node.js' },
+{ type: 'list', text: '[Mobile  ]  Ionic • Capacitor • TypeScript' },
+{ type: 'list', text: '[Database]  SQL Server • MySQL' },
+{ type: 'list', text: '[DevTools]  Docker • Git • GitHub' },
 
-/** Cierra el modal de galería. */
-function closeGallery() {
-  document.getElementById('galleryOverlay').classList.remove('active');
-  document.body.style.overflow = '';
-}
+{ type: 'gap' },
 
-/**
- * Cierra el modal si el clic fue directamente sobre el backdrop.
- * @param {MouseEvent} e
- */
-function closeGalleryOnBackdrop(e) {
-  if (e.target === document.getElementById('galleryOverlay')) {
-    closeGallery();
+{ type: 'cmd', text: 'status --availability' },
+{ type: 'out', text: 'Disponible para nuevas oportunidades ✓' },
+];
+
+  const SPEED = 26;        // ms per character
+  const LINE_PAUSE = 260;  // ms between lines
+  let cancelled = false;
+
+  function makeLineEl(entry) {
+    const line = document.createElement('div');
+    line.className = 'term-line ' + entry.type;
+    if (entry.type === 'gap') return line;
+
+    if (entry.type === 'cmd') {
+      const prompt = document.createElement('span');
+      prompt.className = 'prompt';
+      prompt.textContent = 'david@dev:~$ ';
+      const cmdText = document.createElement('span');
+      cmdText.className = 'cmd-text';
+      line.appendChild(prompt);
+      line.appendChild(cmdText);
+      line._target = cmdText;
+    } else if (entry.type === 'list') {
+      const arrow = document.createElement('span');
+      arrow.className = 'arrow';
+      arrow.textContent = '>';
+      const txt = document.createElement('span');
+      line.appendChild(arrow);
+      line.appendChild(txt);
+      line._target = txt;
+    } else {
+      const txt = document.createElement('span');
+      line.appendChild(txt);
+      line._target = txt;
+    }
+    return line;
   }
-}
 
-/** Renderiza la imagen principal, miniaturas y contador. */
-function renderGallery() {
-  const main      = document.getElementById('galleryMain');
-  const thumbsEl  = document.getElementById('galleryThumbs');
-  const counter   = document.getElementById('galleryCounter');
+  function typeInto(el, text) {
+    return new Promise((resolve) => {
+      if (cancelled) return resolve();
+      let i = 0;
+      const tick = () => {
+        if (cancelled) return resolve();
+        el.textContent += text[i];
+        i++;
+        if (i < text.length) {
+          setTimeout(tick, SPEED);
+        } else {
+          resolve();
+        }
+      };
+      tick();
+    });
+  }
 
-  /* Sin imágenes — mostrar placeholder */
-  if (!currentImages || currentImages.length === 0) {
-    main.innerHTML = `
-      <div class="gallery-placeholder">
-        <div class="gallery-placeholder-icon">◫</div>
-        <p>Aún no hay imágenes para este proyecto.<br/>
-           Para agregarlas, edita el código en el array <strong>images</strong>:<br/>
-           <code>'carpeta/nombre-imagen.png'</code>
-        </p>
-      </div>`;
-    thumbsEl.innerHTML = '';
-    counter.textContent = 'Sin imágenes';
+  async function runScript() {
+    for (const entry of script) {
+      const line = makeLineEl(entry);
+      body.appendChild(line);
+      if (entry.type !== 'gap') {
+        await typeInto(line._target, entry.text);
+      }
+      await new Promise((r) => setTimeout(r, LINE_PAUSE));
+      if (cancelled) return;
+    }
+    // Final blinking prompt
+    const finalLine = document.createElement('div');
+    finalLine.className = 'term-line cmd';
+    const prompt = document.createElement('span');
+    prompt.className = 'prompt';
+    prompt.textContent = 'david@dev:~$ ';
+    const cursor = document.createElement('span');
+    cursor.className = 'term-cursor';
+    finalLine.appendChild(prompt);
+    finalLine.appendChild(cursor);
+    body.appendChild(finalLine);
+  }
+
+  // Start once the terminal scrolls into view (or immediately if already visible)
+  const terminalWindow = document.querySelector('.terminal-window');
+  let started = false;
+  const start = () => {
+    if (started) return;
+    started = true;
+    runScript();
+  };
+
+  if ('IntersectionObserver' in window && terminalWindow) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          start();
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    obs.observe(terminalWindow);
+  } else {
+    start();
+  }
+})();
+
+/* --------------------------------------------
+   2) SCROLL REVEAL
+--------------------------------------------- */
+(function () {
+  const revealEls = document.querySelectorAll('.reveal');
+  if (!revealEls.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach((el) => el.classList.add('visible'));
     return;
   }
 
-  /* Imagen principal */
-  const img = document.createElement('img');
-  img.src = currentImages[currentIndex];
-  img.alt = 'Captura del proyecto';
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  revealEls.forEach((el) => observer.observe(el));
+})();
+
+/* --------------------------------------------
+   3) GALLERY MODAL
+--------------------------------------------- */
+let galleryImages = [];
+let galleryIndex = 0;
+
+function renderGallery() {
+  const main = document.getElementById('galleryMain');
+  const thumbs = document.getElementById('galleryThumbs');
+  const counter = document.getElementById('galleryCounter');
 
   main.innerHTML = '';
+  if (!galleryImages.length) {
+    const empty = document.createElement('div');
+    empty.className = 'gallery-empty';
+    empty.textContent = 'Sin imágenes disponibles.';
+    main.appendChild(empty);
+    thumbs.innerHTML = '';
+    counter.textContent = '';
+    return;
+  }
 
-  if (currentImages.length > 1) {
+  const img = document.createElement('img');
+  img.src = galleryImages[galleryIndex];
+  img.alt = 'Captura de pantalla ' + (galleryIndex + 1);
+  main.appendChild(img);
+
+  if (galleryImages.length > 1) {
     const prevBtn = document.createElement('button');
     prevBtn.className = 'gallery-nav-btn prev';
-    prevBtn.innerHTML = '‹';
-    prevBtn.disabled = currentIndex === 0;
-    prevBtn.onclick = () => navigate(-1);
+    prevBtn.setAttribute('aria-label', 'Anterior');
+    prevBtn.textContent = '‹';
+    prevBtn.onclick = (e) => { e.stopPropagation(); galleryPrev(); };
 
     const nextBtn = document.createElement('button');
     nextBtn.className = 'gallery-nav-btn next';
-    nextBtn.innerHTML = '›';
-    nextBtn.disabled = currentIndex === currentImages.length - 1;
-    nextBtn.onclick = () => navigate(1);
+    nextBtn.setAttribute('aria-label', 'Siguiente');
+    nextBtn.textContent = '›';
+    nextBtn.onclick = (e) => { e.stopPropagation(); galleryNext(); };
 
     main.appendChild(prevBtn);
     main.appendChild(nextBtn);
   }
 
-  main.appendChild(img);
-
-  /* Miniaturas */
-  thumbsEl.innerHTML = '';
-  currentImages.forEach((src, i) => {
-    const thumb = document.createElement('div');
-    thumb.className = 'gallery-thumb' + (i === currentIndex ? ' active' : '');
-    thumb.innerHTML = `<img src="${src}" alt="Miniatura ${i + 1}">`;
-    thumb.onclick = () => {
-      currentIndex = i;
-      renderGallery();
-    };
-    thumbsEl.appendChild(thumb);
+  thumbs.innerHTML = '';
+  galleryImages.forEach((src, i) => {
+    const t = document.createElement('img');
+    t.src = src;
+    t.className = i === galleryIndex ? 'active' : '';
+    t.onclick = () => { galleryIndex = i; renderGallery(); };
+    thumbs.appendChild(t);
   });
 
-  counter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+  counter.textContent = (galleryIndex + 1) + ' / ' + galleryImages.length;
 }
 
-/**
- * Navega a la imagen anterior o siguiente.
- * @param {number} dir  - -1 (anterior) o 1 (siguiente)
- */
-function navigate(dir) {
-  const newIndex = currentIndex + dir;
-  if (newIndex >= 0 && newIndex < currentImages.length) {
-    currentIndex = newIndex;
-    renderGallery();
-  }
+function galleryNext() {
+  if (!galleryImages.length) return;
+  galleryIndex = (galleryIndex + 1) % galleryImages.length;
+  renderGallery();
 }
 
-/* Navegación con teclado */
+function galleryPrev() {
+  if (!galleryImages.length) return;
+  galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+  renderGallery();
+}
+
+function openGallery(title, subtitle, images) {
+  galleryImages = images || [];
+  galleryIndex = 0;
+  document.getElementById('galleryTitle').textContent = title || 'Proyecto';
+  document.getElementById('gallerySubtitle').textContent = subtitle || '';
+  renderGallery();
+  document.getElementById('galleryOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGallery() {
+  document.getElementById('galleryOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeGalleryOnBackdrop(event) {
+  if (event.target.id === 'galleryOverlay') closeGallery();
+}
+
 document.addEventListener('keydown', (e) => {
   const overlay = document.getElementById('galleryOverlay');
-  if (!overlay.classList.contains('active')) return;
-  if (e.key === 'ArrowRight') navigate(1);
-  if (e.key === 'ArrowLeft')  navigate(-1);
-  if (e.key === 'Escape')     closeGallery();
+  if (!overlay || !overlay.classList.contains('active')) return;
+  if (e.key === 'Escape') closeGallery();
+  if (e.key === 'ArrowRight') galleryNext();
+  if (e.key === 'ArrowLeft') galleryPrev();
 });
-
-/* =====================
-   REVEAL ON SCROLL
-===================== */
-const reveals = document.querySelectorAll('.reveal');
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 60);
-    }
-  });
-}, { threshold: 0.1 });
-
-reveals.forEach((el) => revealObserver.observe(el));

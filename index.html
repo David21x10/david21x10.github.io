@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>David Vallecillo — Portafolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -31,7 +33,7 @@
      NAV
 ===================== -->
 <nav>
-  <a class="nav-logo" href="#">DV.DEV</a>
+  <a class="nav-logo" href="#">DV.DEV<span class="caret">&gt;_</span></a>
   <ul class="nav-links">
     <li><a href="#sobre-mi">Perfil</a></li>
     <li><a href="#habilidades">Habilidades</a></li>
@@ -48,35 +50,52 @@
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Disponible para oportunidades</div>
-    <h1>David<br/><span class="accent">Vallecillo</span></h1>
-    <p class="hero-sub">
-      Ingeniero en Ciencias de la Computación · UNICAH<br/>
-      Desarrollo de software &amp; Infraestructura · Honduras
-    </p>
-    <div class="hero-ctas">
-      <a href="#proyectos" class="btn btn-primary">→ Ver proyectos</a>
-      <a href="#contacto" class="btn btn-ghost">Contactar</a>
-      <a href="https://github.com/David21x10" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1>David<br/><span class="accent">Vallecillo<span class="cursor-blink">_</span></span></h1>
+      <p class="hero-sub">
+        Software Engineer | Ingeniero en Ciencias de la Computación<br/>
+        Full-Stack Developer • React • Angular • Node.js • .NET <br/>
+        Honduras • Remoto
+      </p>
+      <div class="hero-ctas">
+        <a href="#proyectos" class="btn btn-primary">→ Ver proyectos</a>
+        <a href="#contacto" class="btn btn-ghost">Contactar</a>
+        <a href="https://github.com/David21x10" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+       <a href="cv/CV_DavidVallecillo_Es.pdf" class="btn btn-ghost" download>
+  <i class="fas fa-download"></i> Descargar CV
+</a>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">10+</div>
-        <div class="stat-label">Proyectos destacados</div>
+
+    <div class="hero-terminal">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-dots"><span></span><span></span><span></span></div>
+          <div class="terminal-label">terminal</div>
+        </div>
+        <div class="terminal-body" id="terminalBody" aria-hidden="true"></div>
       </div>
-      <div>
-        <div class="stat-num">7</div>
-        <div class="stat-label">Certificaciones</div>
-      </div>
-      <div>
-        <div class="stat-num">Full Stack </div>
-        <div class="stat-label">Desarrollo Web y Móvil</div>
-      </div>
-      <div>
-        <div class="stat-num">Open to Work</div>
-        <div class="stat-label">Honduras • Remoto • Internacional</div>
-      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Proyectos destacados</div>
+    </div>
+    <div>
+      <div class="stat-num">7</div>
+      <div class="stat-label">Certificaciones</div>
+    </div>
+    <div>
+      <div class="stat-num">Full Stack</div>
+      <div class="stat-label">Web • Mobile • Enterprise</div>
+    </div>
+    <div>
+      <div class="stat-num">Open to Work</div>
+      <div class="stat-label">Remoto • Híbrido • Internacional</div>
     </div>
   </div>
 </div>
@@ -89,28 +108,62 @@
 <section id="sobre-mi">
   <div class="section-label reveal">// Perfil</div>
   <h2 class="reveal">Sobre mí</h2>
-  <div class="reveal" style="max-width:720px; color: var(--muted); font-size:0.88rem; line-height:2;">
-    <p>
-      Ingeniero en Ciencias de la Computación egresado de UNICAH, apasionado por el desarrollo de software y la creación de soluciones tecnológicas 
-      que generen valor para las organizaciones. Cuento con experiencia en el desarrollo de aplicaciones web, móviles y soluciones empresariales 
-      utilizando C#, ASP.NET, React, Next.js, Angular, Node.js, TypeScript, SQL Server, MySQL, Firebase Firestore y Microsoft Power Platform 
-      (Power Apps, Power Automate y Power Fx). Complemento mi perfil con conocimientos en infraestructura de TI, incluyendo Windows Server, 
-      Active Directory, virtualización, Docker, Kubernetes, así como control de versiones mediante Git, GitHub y Git Flow. Me caracterizo por mi 
-      capacidad de aprendizaje continuo, adaptación a nuevas tecnologías y compromiso con el desarrollo de software de calidad.
-    </p>
-    <br/>
-        <p>
-        Durante mi práctica profesional en una institución gubernamental, lideré el desarrollo
-        de una aplicación móvil institucional orientada a facilitar el acceso a servicios digitales.
-        Fue construida con <strong style="color: var(--text);">Ionic, Angular y Capacitor</strong>
-        (HTML, CSS, TypeScript), integrando herramientas empresariales para la automatización de procesos.
 
-      Además, desarrollé una aplicación de gestión de agenda integrada con plataformas de productividad,
-      ambas implementadas en un entorno institucional real.
+  <div class="about-grid">
+    <div class="about-file reveal">
+      <div class="file-header">
+        <div class="file-dots"><span></span><span></span><span></span></div>
+        <div class="file-name">perfil.md <span class="file-tag">read-only</span></div>
+      </div>
+      <div class="file-body">
 
-      Me caracterizo por aprender rápido, adaptarme a nuevos entornos tecnológicos y entregar
-      soluciones funcionales con impacto real.
-    </p>
+        <div class="code-row">
+          <span class="line-no">01</span>
+          <p class="code-comment">// Perfil profesional</p>
+        </div>
+        <div class="code-row">
+          <span class="line-no">02</span>
+          <p>
+            Ingeniero en Ciencias de la Computación con experiencia en el desarrollo end-to-end de aplicaciones web, móviles y soluciones empresariales implementadas en entornos de producción. Me especializo en el desarrollo Full-Stack utilizando Angular, React, Node.js, C#/.NET, TypeScript, SQL Server y MySQL, construyendo soluciones escalables con arquitecturas cliente-servidor y APIs REST.
+            Durante mi práctica profesional participé en el desarrollo y despliegue de una aplicación móvil institucional y en la automatización de procesos empresariales mediante Power Apps, Power Automate, Power Fx, SharePoint Online y Microsoft 365, contribuyendo a optimizar procesos internos y mejorar la experiencia de los usuarios.
+            Complemento mi experiencia con buenas prácticas de desarrollo como control de versiones con Git y GitHub, pruebas y documentación de APIs mediante Postman, despliegues con Docker y análisis estático de código con SonarQube. Me caracteriza el aprendizaje continuo, la capacidad de adaptación y el compromiso con desarrollar software mantenible, seguro y orientado a resultados.</p>
+        </div>
+        <div class="code-row gap-row"><span class="line-no">03</span></div>
+        <div class="code-row">
+          <span class="line-no">04</span>
+          <p class="code-comment">// Experiencia destacada</p>
+        </div>
+        <div class="code-row">
+          <span class="line-no">05</span>
+          <p>
+            Durante mi práctica profesional participé en el desarrollo de una aplicación móvil multiplataforma 
+            utilizada por personal de una institución gubernamental, implementando funcionalidades para la consulta
+            de servicios y procesos institucionales mediante <strong style="color: var(--text);">Angular, Ionic, Capacitor y TypeScript</strong>. Además, desarrollé 
+            una solución de gestión de agenda utilizando Power Apps, integrada con Microsoft 365 Outlook mediante flujos
+            de Power Automate, permitiendo automatizar la programación de reuniones y mejorar la gestión de actividades institucionales. 
+            También colaboré en despliegues con Docker, documentación técnica y actividades orientadas a garantizar la calidad del software mediante SonarQube.
+          </p>
+        </div>
+
+        <div class="code-row">
+          <span class="line-no">06</span>
+          <p class="code-end">EOF<span class="cursor-blink">_</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <aside class="about-info reveal">
+      <div class="info-header">david@dev:~$ whoami --verbose</div>
+      <ul class="info-list">
+        <li><span class="info-key">nombre</span><span class="info-val">David F. Vallecillo</span></li>
+        <li><span class="info-key">rol</span><span class="info-val">Software Engineer / Full-Stack Developer</span></li>
+        <li><span class="info-key">educación</span><span class="info-val">Ing. Cs. Computación · UNICAH</span></li>
+        <li><span class="info-key">ubicación</span><span class="info-val">Honduras</span></li>
+        <li><span class="info-key">enfoque</span><span class="info-val">Web · Mobile · Enterprise</span></li>
+        <li><span class="info-key">estado</span><span class="info-val status-ok">Disponible ✓</span></li>
+      </ul>
+    </aside>
   </div>
 </section>
 
@@ -123,43 +176,109 @@
   <div class="section-label reveal">// Stack</div>
   <h2 class="reveal">Habilidades</h2>
   <div class="skills-grid">
-    <div class="skills-card reveal">
-      <h3>⚙ Técnicas</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">C#</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">TypeScript</span>
-        <span class="skill-tag">ASP.NET</span>
-        <span class="skill-tag">HTML / CSS</span>
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">Next.js</span>
-        <span class="skill-tag">Angular</span>
-        <span class="skill-tag">Ionic</span>
-        <span class="skill-tag">Capacitor</span>
-        <span class="skill-tag">SQL Server</span>
-        <span class="skill-tag">MySQL</span>
-        <span class="skill-tag">Power Apps</span>
-        <span class="skill-tag">Power Fx</span>
-        <span class="skill-tag">Power Automate</span>
-        <span class="skill-tag">Oracle APEX</span>
-        <span class="skill-tag">JasperReports</span>
-        <span class="skill-tag">Windows Server</span>
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">Active Directory</span>
-        <span class="skill-tag">Office 365</span>
-        <span class="skill-tag">Git / GitHub</span>
+<div class="skills-card reveal">
+      <div class="box-header">
+        <div class="box-dots"><span></span><span></span><span></span></div>
+        <div class="box-label">skills_technical.json</div>
+      </div>
+      <div class="box-body">
+        <h3>⚙ Técnicas</h3>
+
+        <!-- Frontend -->
+        <div class="skill-group">
+          <h4 class="skill-category">Frontend</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Angular</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">Bootstrap</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">Ionic</span>
+            <span class="skill-tag">Capacitor</span>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="skill-group">
+          <h4 class="skill-category">Backend</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">ASP.NET MVC</span>
+            <span class="skill-tag">ASP.NET Web Forms</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">JWT Authentication</span>
+          </div>
+        </div>
+
+        <!-- Bases de datos -->
+        <div class="skill-group">
+          <h4 class="skill-category">Bases de datos</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">SQL Server</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Firebase Firestore</span>
+          </div>
+        </div>
+
+        <!-- Microsoft Platform -->
+        <div class="skill-group">
+          <h4 class="skill-category">Microsoft Platform</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Power Apps</span>
+            <span class="skill-tag">Power Automate</span>
+            <span class="skill-tag">Power Fx</span>
+            <span class="skill-tag">SharePoint Online</span>
+            <span class="skill-tag">Microsoft 365</span>
+          </div>
+        </div>
+
+        <!-- Dev Tools -->
+        <div class="skill-group">
+          <h4 class="skill-category">Dev Tools</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Git Flow</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">SonarQube</span>
+          </div>
+        </div>
+
+        <!-- Metodologías -->
+        <div class="skill-group">
+          <h4 class="skill-category">Metodologías</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Scrum</span>
+            <span class="skill-tag">Desarrollo Iterativo</span>
+            <span class="skill-tag">Trabajo Colaborativo</span>
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="skills-card reveal">
-      <h3>◈ Blandas</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Aprendizaje rápido</span>
-        <span class="skill-tag">Responsabilidad</span>
-        <span class="skill-tag">Comunicación</span>
-        <span class="skill-tag">Liderazgo</span>
-        <span class="skill-tag">Trabajo en equipo</span>
-        <span class="skill-tag">Resolución de problemas</span>
-        <span class="skill-tag">Adaptabilidad</span>
+      <div class="box-header">
+        <div class="box-dots"><span></span><span></span><span></span></div>
+        <div class="box-label">skills_soft.json</div>
+      </div>
+      <div class="box-body">
+        <h3>◈ Blandas</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Aprendizaje rápido</span>
+          <span class="skill-tag">Responsabilidad</span>
+          <span class="skill-tag">Comunicación</span>
+          <span class="skill-tag">Liderazgo</span>
+          <span class="skill-tag">Trabajo en equipo</span>
+          <span class="skill-tag">Resolución de problemas</span>
+          <span class="skill-tag">Adaptabilidad</span>
+        </div>
       </div>
     </div>
   </div>
@@ -179,15 +298,14 @@
     <div class="project-item featured reveal">
       <div class="project-num">01</div>
       <div class="project-info">
-        <h3>Aplicación Móvil Institucional <span class="project-badge">Destacado</span></h3>
+        <h3>Aplicación Móvil Institucional <span class="project-badge">Destacado</span> <span class="status-tag status-tag--gov">gubernamental</span></h3>
         <p class="project-desc">
-          Aplicación móvil institucional desarrollada durante la práctica profesional en una entidad gubernamental.
-          Orientada a facilitar el acceso a servicios digitales, permitiendo a los usuarios consultar información,
-          gestionar solicitudes y acceder a recursos institucionales desde una interfaz centralizada.
-          
-          Construida con tecnologías híbridas modernas e integrada con servicios empresariales para la automatización
-          de procesos y gestión de datos. Incluye funcionalidades de autenticación, formularios interactivos y
-          consistencia visual alineada con lineamientos institucionales.
+         Aplicación móvil multiplataforma desarrollada durante mi práctica profesional para una institución gubernamental. Participé en el desarrollo y despliegue 
+         de una solución utilizada por personal de la institución, compuesta por tres módulos, uno orientado a servicios legales y dos destinados a procesos internos.
+
+         La aplicación fue desarrollada utilizando Angular, Ionic, Capacitor y TypeScript, implementando interfaces responsivas, autenticación de usuarios y consumo de servicios mediante APIs.
+
+         Como parte del proyecto integré flujos de Power Automate con SharePoint Online, permitiendo consultar el estado de trámites directamente desde la aplicación sin necesidad de atención presencial, mejorando la disponibilidad y accesibilidad de los servicios digitales.
         </p>
         <div class="project-tech">
           <span class="tech-tag">Ionic</span>
@@ -196,11 +314,11 @@
           <span class="tech-tag">TypeScript</span>
           <span class="tech-tag">HTML / CSS</span>
           <span class="tech-tag">Power Automate</span>
+          <span class="tech-tag">REST APIs</span>
         </div>
       </div>
       <div class="project-actions">
-        <span style="color: var(--muted); font-size:0.7rem; padding-top:0.2rem; white-space:nowrap;">2026 · Institución gubernamental</span>
-        
+        <span class="project-date">2026 · Institución gubernamental</span>
       </div>
     </div>
 
@@ -208,23 +326,22 @@
     <div class="project-item reveal">
       <div class="project-num">02</div>
       <div class="project-info">
-        <h3>App de Agenda Institucional</h3>
+        <h3>App de Agenda Institucional <span class="status-tag status-tag--gov">gubernamental</span></h3>
         <p class="project-desc">
-            Aplicación institucional orientada a la gestión y organización de reuniones durante el período de práctica profesional.
-            Permite la planificación eficiente de actividades mediante la visualización de disponibilidad y la integración
-            con herramientas de productividad empresarial.
+            Aplicación empresarial desarrollada con Power Apps para optimizar la gestión de reuniones institucionales. La solución permite administrar agendas, consultar disponibilidad y organizar actividades mediante una interfaz sencilla e integrada con el ecosistema Microsoft.
 
-            Incluye funcionalidades para el control de agendas, optimización del tiempo y soporte para entornos colaborativos,
-            implementada en un entorno corporativo real.
+            Implementé la lógica de negocio utilizando Power Fx e integré la aplicación con Microsoft 365 Outlook mediante flujos de Power Automate, automatizando la creación y administración de reuniones institucionales y reduciendo tareas manuales dentro del proceso administrativo.
           </p>
         <div class="project-tech">
           <span class="tech-tag">Power Apps</span>
           <span class="tech-tag">Power Fx</span>
-          <span class="tech-tag">Office 365</span>
+          <span class="tech-tag">Power Automate</span>
+          <span class="tech-tag">Microsoft 365</span>
+          <span class="tech-tag">Outlook</span>
         </div>
       </div>
       <div class="project-actions">
-        <span style="color: var(--muted); font-size:0.7rem; padding-top:0.2rem; white-space:nowrap;">2026 · Institución gubernamental</span>
+        <span class="project-date">2026 · Institución gubernamental</span>
       </div>
     </div>
 
@@ -232,11 +349,9 @@
     <div class="project-item reveal">
       <div class="project-num">03</div>
       <div class="project-info">
-        <h3>Infraestructura de Red con Windows Server</h3>
+        <h3>Infraestructura de Red con Windows Server <span class="status-tag status-tag--acad">académico</span></h3>
         <p class="project-desc">
-          Configuración de un entorno de red empresarial usando Windows Server con Active Directory,
-          gestión centralizada de usuarios, equipos y políticas de dominio, simulando el entorno real
-          de una organización con múltiples clientes conectados bajo el mismo dominio.
+          Configuración de un entorno de red empresarial usando Windows Server con Active Directory, gestión centralizada de usuarios, equipos y políticas de dominio, simulando el entorno real de una organización con múltiples clientes conectados bajo el mismo dominio.
         </p>
         <div class="project-tech">
           <span class="tech-tag">Windows Server</span>
@@ -246,7 +361,7 @@
         </div>
       </div>
       <div class="project-actions">
-        <span style="color: var(--muted); font-size:0.7rem; padding-top:0.2rem;">Académico</span>
+        <span class="project-date">Académico</span>
         <button class="project-link btn-gallery"
           onclick="openGallery('Infraestructura de Red con Windows Server', 'Proyecto Académico', [
             'imagenes/winserve/winserve1.png',
@@ -262,11 +377,9 @@
     <div class="project-item reveal">
       <div class="project-num">04</div>
       <div class="project-info">
-        <h3>Sistema de Facturación e Inventario — Desktop</h3>
+        <h3>Sistema de Facturación e Inventario — Desktop <span class="status-tag status-tag--client">cliente real</span></h3>
         <p class="project-desc">
-          Sistema de escritorio desarrollado en C# para una empresa real, con módulos completos de
-          facturación, control de inventario y gestión de clientes. Aplicación completamente funcional
-          con base de datos en SQL Server.
+          Sistema de escritorio desarrollado en C# y .NET para una empresa real, diseñado para administrar procesos de facturación, inventario y clientes. Implementé módulos de registro, consulta y actualización de información, integrando la aplicación con SQL Server para garantizar la consistencia de los datos y optimizar las operaciones comerciales.
         </p>
         <div class="project-tech">
           <span class="tech-tag">C#</span>
@@ -281,75 +394,80 @@
           onclick="openGallery('Sistema de Facturación e Inventario', 'C# · SQL Server', [
             'imagenes/SistemaLacteos/lacteos1.png',
             'imagenes/SistemaLacteos/lacteos2.png',
-            'imagenes/SistemaLacteos/lacteos3.png',
+            'imagenes/SistemaLacteos/lacteos3.png'
           ])">
           ◫ Ver imágenes
         </button>
       </div>
     </div>
 
-    <!-- 05 — Ventas Web -->
+    <!-- 05 — Clínica -->
     <div class="project-item reveal">
       <div class="project-num">05</div>
       <div class="project-info">
-        <h3>Sistema Web de Gestión para Clínica</h3>
+        <h3>Sistema Web de Gestión para Clínica <span class="status-tag status-tag--personal">personal</span></h3>
         <p class="project-desc">
-          Sistema web de gestión clínica con módulos de pacientes, inventario y citas médicas.
-          Desarrollado con React, TypeScript, Node.js y APIs REST, participando tanto en el frontend 
-          como en el backend bajo una arquitectura cliente-servidor.
+          Sistema web desarrollado bajo metodología Scrum para la administración de pacientes, expedientes clínicos, citas médicas e inventario. Participé en el desarrollo Full-Stack implementando una arquitectura cliente-servidor con React, Vite y TypeScript para el frontend, y Node.js con APIs REST para el backend.
+
+          Implementé autenticación mediante JWT, autorización basada en roles de usuario, validaciones de negocio y generación de reportes exportables en PDF y Excel. Además, utilicé Git, GitHub y Postman para la gestión del código fuente, documentación y validación de servicios REST.
         </p>
         <div class="project-tech">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Vite</span>
           <span class="tech-tag">TypeScript</span>
           <span class="tech-tag">Node.js</span>
-          <span class="tech-tag">React</span>
+          <span class="tech-tag">REST APIs</span>
+          <span class="tech-tag">JWT</span>
           <span class="tech-tag">HTML/CSS</span>
           <span class="tech-tag">MySQL</span>
-          <span class="tech-tag">REST API</span>
+          <span class="tech-tag">GitHub</span>
+          <span class="tech-tag">Postman</span>
+          <span class="tech-tag">Scrum</span>
         </div>
       </div>
       <div class="project-actions">
         <button class="project-link btn-gallery"
-          onclick="openGallery('Sistema de Ventas Web — Papelería', 'JavaScript · Node.js · MySQL', [
-
+          onclick="openGallery('Sistema Web de Gestión para Clínica', 'React · Node.js · MySQL', [
             'imagenes/clinica/clinica1.png',
             'imagenes/clinica/clinica2.png',
-            'imagenes/clinica/clinica3.png',
-
+            'imagenes/clinica/clinica3.png'
           ])">
           ◫ Ver imágenes
         </button>
       </div>
     </div>
 
-    
     <!-- 06 — Ventas Web -->
     <div class="project-item reveal">
       <div class="project-num">06</div>
       <div class="project-info">
-        <h3>Sistema de Ventas Web — Papelería</h3>
+        <h3>Sistema de Ventas Web — Papelería <span class="status-tag status-tag--team">equipo</span></h3>
         <p class="project-desc">
-          Aplicación web de gestión de ventas e inventario para una papelería. Arquitectura
-          separada en API REST con JavaScript/Node.js y frontend con HTML y CSS, conectada a
-          base de datos MySQL. Desarrollado en equipo con repositorios independientes.
+          Aplicación web desarrollada en equipo para la administración de ventas e inventario de una papelería. Participé en el desarrollo del frontend con React, Vite y TypeScript, así como en la integración con un backend desarrollado en Node.js y APIs REST, conectado a una base de datos MySQL.
+
+          Implementé funcionalidades relacionadas con el proceso de facturación, generación automática de comprobantes en formato PDF, validaciones de usuarios y consumo de servicios. El proyecto fue desarrollado utilizando Git y GitHub para el trabajo colaborativo y Postman para las pruebas y documentación de APIs.
         </p>
         <div class="project-tech">
-          <span class="tech-tag">JavaScript</span>
-          <span class="tech-tag">Node.js</span>
           <span class="tech-tag">React</span>
+          <span class="tech-tag">Vite</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">REST APIs</span>
+          <span class="tech-tag">JWT</span>
           <span class="tech-tag">HTML/CSS</span>
           <span class="tech-tag">MySQL</span>
-          <span class="tech-tag">REST API</span>
+          <span class="tech-tag">GitHub</span>
+          <span class="tech-tag">Postman</span>
+          <span class="tech-tag">PDF</span>
         </div>
       </div>
       <div class="project-actions">
         <a href="https://github.com/David21x10/SistemaGestionVentasTiendaG3" target="_blank" class="project-link">GitHub ↗</a>
         <button class="project-link btn-gallery"
           onclick="openGallery('Sistema de Ventas Web — Papelería', 'JavaScript · Node.js · MySQL', [
-
             'imagenes/ventas/ventas1.png',
             'imagenes/ventas/ventas2.png',
-            'imagenes/ventas/ventas3.png',
-
+            'imagenes/ventas/ventas3.png'
           ])">
           ◫ Ver imágenes
         </button>
@@ -360,17 +478,20 @@
     <div class="project-item reveal">
       <div class="project-num">07</div>
       <div class="project-info">
-        <h3>E-commerce — ASP.NET</h3>
+        <h3>E-commerce — ASP.NET <span class="status-tag status-tag--acad">académico</span></h3>
         <p class="project-desc">
-          Tienda en línea con catálogo de productos, carrito de compras y módulo de facturación.
-          Desarrollada con ASP.NET aplicando el patrón MVC y buenas prácticas de desarrollo web
-          con tecnologías del ecosistema Microsoft.
+          Aplicación web de comercio electrónico desarrollada utilizando ASP.NET MVC, C# y SQL Server, implementando una arquitectura basada en el patrón Modelo-Vista-Controlador (MVC). El sistema incorpora módulos para catálogo de productos, carrito de compras, facturación, administración de productos y control de inventario.
+
+          Desarrollé operaciones CRUD, autenticación de usuarios, autorización basada en roles y validaciones de negocio, integrando la aplicación con SQL Server para garantizar una administración eficiente de productos, ventas e inventario.
         </p>
         <div class="project-tech">
           <span class="tech-tag">ASP.NET</span>
           <span class="tech-tag">C#</span>
           <span class="tech-tag">MVC</span>
           <span class="tech-tag">SQL Server</span>
+          <span class="tech-tag">CRUD</span>
+          <span class="tech-tag">autenticación</span>
+          <span class="tech-tag">Bootstrap</span>
         </div>
       </div>
       <div class="project-actions">
@@ -379,7 +500,7 @@
           onclick="openGallery('E-commerce ASP.NET', 'C# · MVC · SQL Server', [
             'imagenes/Papeleria/papeleria1.png',
             'imagenes/Papeleria/papeleria2.png',
-            'imagenes/Papeleria/papeleria3.png',
+            'imagenes/Papeleria/papeleria3.png'
           ])">
           ◫ Ver imágenes
         </button>
@@ -400,82 +521,124 @@
   <div class="certs-grid">
 
     <div class="cert-card reveal">
-  <div class="cert-icon">🏆</div>
-  <h3>Reconocimiento a la Excelencia Académica</h3>
-  <div class="cert-issuer">UNICAH — Campus Santiago Apóstol</div>
-  <div class="cert-date">2.º lugar · Facultad de Ingeniería en Ciencias de la Computación · Graduación 2026</div>
-  <button class="project-link btn-gallery"
-    onclick="openGallery('Reconocimiento a la Excelencia Académica', '2.º lugar de la Facultad de Ingeniería en Ciencias de la Computación durante la Graduación 2026', [
-      'imagenes/certificaciones/2icc.png'
-    ])">
-    Ver Certificación
-  </button>
-</div>
-
-    <div class="cert-card reveal">
-      <div class="cert-icon">🏆</div>
-      <h3>Reconocimiento de Excelencia Académica</h3>
-      <div class="cert-issuer">UNICAH — Campus Santiago Apóstol</div>
-      <div class="cert-date">3er lugar · Facultad de Ingeniería en Computación · 2025</div>
-            <button class="project-link btn-gallery"
-          onclick="openGallery('Reconocimiento de excelencia académica', '3cer lugar de la facultad', [
-            'imagenes/certificaciones/3cerdiploma.png.jpeg',
+      <div class="box-header">
+        <div class="box-dots"><span></span><span></span><span></span></div>
+        <div class="box-label">cert_01.log</div>
+      </div>
+      <div class="box-body">
+        <div class="cert-icon">🏆</div>
+        <h3>Reconocimiento a la Excelencia Académica</h3>
+        <div class="cert-issuer">UNICAH — Campus Santiago Apóstol</div>
+        <div class="cert-date">2.º lugar · Facultad de Ingeniería en Ciencias de la Computación · Graduación 2026</div>
+        <button class="project-link btn-gallery"
+          onclick="openGallery('Reconocimiento a la Excelencia Académica', '2.º lugar de la Facultad de Ingeniería en Ciencias de la Computación durante la Graduación 2026', [
+            'imagenes/certificaciones/2icc.png'
           ])">
           Ver Certificación
         </button>
+      </div>
     </div>
 
     <div class="cert-card reveal">
-      <div class="cert-icon">🗄️</div>
-      <h3>Oracle APEX — Desarrollo de Aplicaciones</h3>
-      <div class="cert-issuer">SEFIN — Secretaría de Finanzas</div>
-      <div class="cert-date">Capacitación institucional · 2026</div>
+      <div class="box-header">
+        <div class="box-dots"><span></span><span></span><span></span></div>
+        <div class="box-label">cert_02.log</div>
+      </div>
+      <div class="box-body">
+        <div class="cert-icon">🏆</div>
+        <h3>Reconocimiento a la Excelencia Académica</h3>
+        <div class="cert-issuer">UNICAH — Campus Santiago Apóstol</div>
+        <div class="cert-date">3er lugar · Facultad de Ingeniería en Computación · 2025</div>
+        <button class="project-link btn-gallery"
+          onclick="openGallery('Reconocimiento de excelencia académica', '3er lugar de la facultad', [
+            'imagenes/certificaciones/3cerdiploma.png.jpeg'
+          ])">
+          Ver Certificación
+        </button>
+      </div>
     </div>
 
     <div class="cert-card reveal">
-      <div class="cert-icon">📊</div>
-      <h3>JasperSoft — Reportería y Business Intelligence</h3>
-      <div class="cert-issuer">SEFIN — Secretaría de Finanzas</div>
-      <div class="cert-date">Capacitación institucional · 2026</div>
+      <div class="box-header">
+        <div class="box-dots"><span></span><span></span><span></span></div>
+        <div class="box-label">cert_03.log</div>
+      </div>
+      <div class="box-body">
+        <div class="cert-icon">🗄️</div>
+        <h3>Oracle APEX — Desarrollo de Aplicaciones</h3>
+        <div class="cert-issuer">SEFIN — Secretaría de Finanzas</div>
+        <div class="cert-date">Capacitación institucional · 2026</div>
+      </div>
     </div>
 
     <div class="cert-card reveal">
-      <div class="cert-icon">📊</div>
-      <h3>MS Excel Intermedio</h3>
-      <div class="cert-issuer">INFOP — Formación a Distancia</div>
-      <div class="cert-date">20 horas · Agosto 2025 · Reg. 2638523</div>
-       <button class="project-link btn-gallery"
+      <div class="box-header">
+        <div class="box-dots"><span></span><span></span><span></span></div>
+        <div class="box-label">cert_04.log</div>
+      </div>
+      <div class="box-body">
+        <div class="cert-icon">📊</div>
+        <h3>JasperSoft — Reportería y Business Intelligence</h3>
+        <div class="cert-issuer">SEFIN — Secretaría de Finanzas</div>
+        <div class="cert-date">Capacitación institucional · 2026</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal">
+      <div class="box-header">
+        <div class="box-dots"><span></span><span></span><span></span></div>
+        <div class="box-label">cert_05.log</div>
+      </div>
+      <div class="box-body">
+        <div class="cert-icon">📊</div>
+        <h3>MS Excel Intermedio</h3>
+        <div class="cert-issuer">INFOP — Formación a Distancia</div>
+        <div class="cert-date">20 horas · Agosto 2025 · Reg. 2638523</div>
+        <button class="project-link btn-gallery"
           onclick="openGallery('CERTIFICADO de Excel Intermedio', 'INFOP', [
-            'imagenes/certificaciones/excelinfop.jpg',
+            'imagenes/certificaciones/excelinfop.jpg'
           ])">
           Ver Certificación
         </button>
+      </div>
     </div>
 
     <div class="cert-card reveal">
-      <div class="cert-icon">🗄️</div>
-      <h3>Base de Datos MySQL</h3>
-      <div class="cert-issuer">INFOP — Formación a Distancia</div>
-      <div class="cert-date">20 horas · Septiembre 2025 · Reg. 2642121</div>
-            <button class="project-link btn-gallery"
+      <div class="box-header">
+        <div class="box-dots"><span></span><span></span><span></span></div>
+        <div class="box-label">cert_06.log</div>
+      </div>
+      <div class="box-body">
+        <div class="cert-icon">🗄️</div>
+        <h3>Base de Datos MySQL</h3>
+        <div class="cert-issuer">INFOP — Formación a Distancia</div>
+        <div class="cert-date">20 horas · Septiembre 2025 · Reg. 2642121</div>
+        <button class="project-link btn-gallery"
           onclick="openGallery('CERTIFICADO de MySQL', 'INFOP', [
-            'imagenes/certificaciones/mysqlinfop.jpg',
+            'imagenes/certificaciones/mysqlinfop.jpg'
           ])">
           Ver Certificación
         </button>
+      </div>
     </div>
 
     <div class="cert-card reveal">
-      <div class="cert-icon">🔧</div>
-      <h3>Mantenimiento y Reparación de Hardware</h3>
-      <div class="cert-issuer">UNICAH — Let's Fix It</div>
-      <div class="cert-date">Seminario · Campus Santiago Apóstol</div>
-      <button class="project-link btn-gallery"
+      <div class="box-header">
+        <div class="box-dots"><span></span><span></span><span></span></div>
+        <div class="box-label">cert_07.log</div>
+      </div>
+      <div class="box-body">
+        <div class="cert-icon">🔧</div>
+        <h3>Mantenimiento y Reparación de Hardware</h3>
+        <div class="cert-issuer">UNICAH — Let's Fix It</div>
+        <div class="cert-date">Seminario · Campus Santiago Apóstol</div>
+        <button class="project-link btn-gallery"
           onclick="openGallery('CERTIFICADO LETS FIX IT-UNICAH', 'UNICAH', [
-            'imagenes/certificaciones/letsfix.png',
+            'imagenes/certificaciones/letsfix.png'
           ])">
           Ver Certificación
         </button>
+      </div>
     </div>
 
   </div>
@@ -492,41 +655,52 @@
     <div class="contact-info">
       <h2>Hablemos</h2>
       <p>
-        Estoy en búsqueda de oportunidades en desarrollo de software e infraestructura.
-        Si tienes un proyecto o posición abierta, escríbeme.
+        Estoy abierto a oportunidades como Software Engineer o Full-Stack Developer, donde pueda aportar experiencia en el desarrollo de aplicaciones web, móviles y soluciones empresariales. Si tienes un proyecto o una posición relacionada con desarrollo de software, estaré encantado de conversar.
       </p>
-      <div class="contact-links">
-        <a href="mailto:vallecillodavid21@gmail.com" class="contact-link">
-          <div class="contact-link-icon">✉</div>
-          vallecillodavid21@gmail.com
-        </a>
-        <a href="https://github.com/David21x10" target="_blank" class="contact-link">
-          <div class="contact-link-icon">⌥</div>
-          github.com/David21x10
-        </a>
-        <a href="https://www.linkedin.com/in/davidvallecillo/" target="_blank" class="contact-link">
-          <div class="contact-link-icon">in</div>
-          LinkedIn — David Vallecillo
-        </a>
-        <a href="tel:+50496559145" class="contact-link">
-          <div class="contact-link-icon">☏</div>
-          +504 9655-9145
-        </a>
+      <div class="contact-box">
+        <div class="box-header">
+          <div class="box-dots"><span></span><span></span><span></span></div>
+          <div class="box-label">contacto.sh</div>
+        </div>
+        <div class="box-body contact-links">
+          <a href="mailto:vallecillodavid21@gmail.com" class="contact-link">
+            <div class="contact-link-icon">✉</div>
+            vallecillodavid21@gmail.com
+          </a>
+          <a href="https://github.com/David21x10" target="_blank" class="contact-link">
+            <div class="contact-link-icon">⌥</div>
+            github.com/David21x10
+          </a>
+          <a href="https://www.linkedin.com/in/davidvallecillo/" target="_blank" class="contact-link">
+            <div class="contact-link-icon">in</div>
+            LinkedIn — David Vallecillo
+          </a>
+          <a href="tel:+50496559145" class="contact-link">
+            <div class="contact-link-icon">☏</div>
+            +504 9655-9145
+          </a>
+        </div>
       </div>
     </div>
     <div class="availability">
-      <div>
-        <span class="avail-dot"></span>
-        <span style="font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted);">Estado actual</span>
+      <div class="box-header">
+        <div class="box-dots"><span></span><span></span><span></span></div>
+        <div class="box-label">status.sh</div>
       </div>
-      <div class="avail-status">Disponible</div>
-      <div class="avail-sub"> Abierto a ofertas de trabajo<br/> Honduras • Remoto • Internacional </div>
-      <br/>
-      <div style="color:var(--muted); font-size:0.7rem; line-height:1.8;">
-        Disponible para roles en<br/>
-        <span style="color:var(--accent);">Desarrollo</span> ·
-        <span style="color:var(--accent);">Infraestructura</span> ·
-        <span style="color:var(--accent);">Full Stack</span>
+      <div class="box-body">
+        <div class="avail-heading">
+          <span class="avail-dot"></span>
+          <span class="avail-label">Estado actual</span>
+        </div>
+        <div class="avail-status">Disponible</div>
+        <div class="avail-sub">Abierto a ofertas de trabajo<br/>Honduras • Remoto • Internacional</div>
+        <div class="avail-roles">
+          Disponible para roles en<br/>
+          <span class="accent-inline">Ingeniería de Software</span> ·
+          <span class="accent-inline">Desarrollo Full-Stack</span> ·
+          <span class="accent-inline">Desarrollo Frontend</span>
+          <span class="accent-inline">Desarrollo Backend</span>
+        </div>
       </div>
     </div>
   </div>
@@ -534,7 +708,7 @@
 
 <footer>
   <span>© 2026 David Fernando Vallecillo</span>
-  <span>Ingeniería en Ciencias de la Computación · UNICAH</span>
+  <span>Software Engineer · Full-Stack Developer</span>
 </footer>
 
 <script src="main.js"></script>
