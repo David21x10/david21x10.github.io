@@ -23,6 +23,12 @@
 
 * { box-sizing: border-box; }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -843,4 +849,95 @@ footer {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin: 1rem 0 0.5rem;
+}
+
+/* ============================================
+   HERO RESPONSIVE MOBILE FIX
+   ============================================ */
+
+@media (max-width: 560px) {
+
+  .hero {
+    width: 100%;
+    overflow-x: hidden;
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .hero-inner {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 12vw, 3rem);
+    word-break: break-word;
+  }
+
+  .hero-sub {
+    font-size: 0.72rem;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  .hero-ctas {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+  }
+
+
+  /* Terminal */
+  .hero-terminal {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .terminal-window {
+    width: 100%;
+  }
+
+  .terminal-body {
+    padding: 1rem;
+    font-size: 0.72rem;
+    overflow-x: hidden;
+    min-height: 230px;
+  }
+
+
+  /* Stats */
+  .hero-stats {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .hero-stats > div {
+    padding: 1rem 0;
+    border-left: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-stats > div:last-child {
+    border-bottom: none;
+  }
+
+  .stat-num {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
 }
