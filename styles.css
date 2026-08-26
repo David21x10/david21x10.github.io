@@ -1,7 +1,4 @@
-/* ============================================
-   DV.DEV — Terminal Portfolio
-   Tokens
-   ============================================ */
+
 :root {
   --bg:        #000000;
   --bg-raised: #0a0a0a;
@@ -48,7 +45,7 @@ p { margin: 0; }
 
 ::selection { background: var(--green); color: #04140a; }
 
-/* Focus visibility */
+
 a:focus-visible, button:focus-visible {
   outline: 2px solid var(--green);
   outline-offset: 3px;

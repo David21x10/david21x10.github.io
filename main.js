@@ -1,39 +1,38 @@
-/* ============================================
-   DV.DEV — Terminal Portfolio
-   main.js
-   ============================================ */
-
-/* --------------------------------------------
-   1) TYPEWRITER TERMINAL
---------------------------------------------- */
 (function () {
   const body = document.getElementById('terminalBody');
   if (!body) return;
 
-  // Each entry describes one line of the fake session.
-  // type: 'cmd' (green prompt + typed command), 'out' (plain output),
-  // 'list' (pink arrow + green text), 'gap' (blank spacer)
-  const script = [
+const script = [
+
   { type: 'cmd', text: 'whoami' },
+
   { type: 'out', text: 'Software Engineer / Full-Stack Developer' },
 
   { type: 'gap' },
 
   { type: 'cmd', text: 'stack --list' },
-{ type: 'list', text: '[Frontend]  React • Angular • Next.js' },
-{ type: 'list', text: '[Backend ]  C# • .NET • Node.js' },
-{ type: 'list', text: '[Mobile  ]  Ionic • Capacitor • TypeScript' },
-{ type: 'list', text: '[Database]  SQL Server • MySQL' },
-{ type: 'list', text: '[DevTools]  Docker • Git • GitHub' },
 
-{ type: 'gap' },
+  { type: 'list', text: '[Frontend]  React • Angular • JavaScript' },
 
-{ type: 'cmd', text: 'status --availability' },
-{ type: 'out', text: 'Disponible para nuevas oportunidades ✓' },
+  { type: 'list', text: '[Backend ]  C# • .NET • Node.js' },
+
+  { type: 'list', text: '[Mobile  ]  Ionic • Capacitor • TypeScript' },
+
+  { type: 'list', text: '[Database]  SQL Server • MySQL' },
+
+  { type: 'list', text: '[DevTools] Docker • Git • GitHub' },
+
+  { type: 'gap' },
+
+  { type: 'cmd', text: 'status --availability' },
+
+  { type: 'out', text: 'Disponible para nuevas oportunidades ✓' },
+
 ];
 
-  const SPEED = 26;        // ms per character
-  const LINE_PAUSE = 260;  // ms between lines
+
+  const SPEED = 26;        
+  const LINE_PAUSE = 260;  
   let cancelled = false;
 
   function makeLineEl(entry) {
@@ -94,7 +93,6 @@
       await new Promise((r) => setTimeout(r, LINE_PAUSE));
       if (cancelled) return;
     }
-    // Final blinking prompt
     const finalLine = document.createElement('div');
     finalLine.className = 'term-line cmd';
     const prompt = document.createElement('span');
@@ -107,7 +105,6 @@
     body.appendChild(finalLine);
   }
 
-  // Start once the terminal scrolls into view (or immediately if already visible)
   const terminalWindow = document.querySelector('.terminal-window');
   let started = false;
   const start = () => {
@@ -131,9 +128,7 @@
   }
 })();
 
-/* --------------------------------------------
-   2) SCROLL REVEAL
---------------------------------------------- */
+
 (function () {
   const revealEls = document.querySelectorAll('.reveal');
   if (!revealEls.length) return;
@@ -158,9 +153,7 @@
   revealEls.forEach((el) => observer.observe(el));
 })();
 
-/* --------------------------------------------
-   3) GALLERY MODAL
---------------------------------------------- */
+
 let galleryImages = [];
 let galleryIndex = 0;
 
