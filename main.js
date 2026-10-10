@@ -12,13 +12,13 @@ const script = [
 
   { type: 'cmd', text: 'stack --list' },
 
-  { type: 'list', text: '[Frontend]  React • Angular • JavaScript' },
+  { type: 'list', text: '[Frontend]  React • Angular • JavaScript • TypeScript' },
 
   { type: 'list', text: '[Backend ]  C# • .NET • Node.js' },
 
   { type: 'list', text: '[Mobile  ]  Ionic • Capacitor • TypeScript' },
 
-  { type: 'list', text: '[Database]  SQL Server • MySQL' },
+  { type: 'list', text: '[Database]  SQL Server • MySQL • MongoDB' },
 
   { type: 'list', text: '[DevTools] Docker • Git • GitHub' },
 
